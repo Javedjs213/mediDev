@@ -15,6 +15,7 @@ const userSchema = new mongoose.Schema(
   },
   options
 );
+
 userSchema.plugin(passportLocalMongoose, { usernameField: "email" });
 
 const User = mongoose.model("User", userSchema);
@@ -67,6 +68,8 @@ const ngoSchema = new mongoose.Schema(
     email: { type: String, required: true, unique: true },
     password: { type: String },
     missionStatement: String,
+    address: String,
+    websiteUrl: String,
     verified: { type: Boolean, default: false },
     certifications: [String],
   },
