@@ -46,10 +46,10 @@ const Patient = mongoose.model("Patient", patientSchema);
 // Doctor Schema
 const doctorSchema = new mongoose.Schema(
   {
-    fullName: { type: String, required: true },
+    fullName: { type: String  },
     email: { type: String, required: true, unique: true },
-    password: { type: String },
-    licenseNumber: { type: String, unique: true },
+    password: { type: String},
+    licenseNumber: { type: String },
     verified: { type: Boolean, default: false },
     specialization: [String],
     experience: String,

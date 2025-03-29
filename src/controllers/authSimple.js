@@ -9,6 +9,8 @@ export const signup = async (req, res) => {
   try {
     const { fullName, email, password, role } = req.body;
 
+    console.log(fullName, email, password, role);
+
     if (!fullName || !email || !password || !role) {
       return res.status(400).json({ message: "All fields are required." });
     }

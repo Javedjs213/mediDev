@@ -1,7 +1,7 @@
 import express from "express";
 import session from "express-session";
 import bodyParser from "body-parser"; 
-
+import cors from "cors";
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import { User, Patient, Doctor, NGO } from "./models/authModel.js";
@@ -9,6 +9,15 @@ import authRoutes from "./routes/authRoutes.js";
 
 
 const app = express();
+
+
+app.use(
+  cors({
+    origin: "*", // Allow all origins (not recommended for production)
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true, // Allow cookies if needed
+  })
+);
 
 
 app.use(bodyParser.json()); 
