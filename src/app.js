@@ -6,6 +6,7 @@ import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
 import { User, Patient, Doctor, NGO } from "./models/authModel.js";
 import authRoutes from "./routes/authRoutes.js";
+import patientRoutes from "./routes/patientRoute.js";
 
 
 const app = express();
@@ -106,6 +107,7 @@ passport.deserializeUser(async (obj, done) => {
 
 
 app.use("/api/auth",authRoutes);
+app.use("/api/patient",patientRoutes);
 
 
 
