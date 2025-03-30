@@ -7,22 +7,24 @@ import { Patient } from "../models/authModel.js";
 export const createPost = async (req, res) => {
   try {
     const { content, imageUrl, reportUrl, medicalHistory } = req.body;
-    const patientId = req.user.id; // Assuming `req.user` is set by authentication middleware
+
+    console.log(content, imageUrl, reportUrl, medicalHistory);
 
     if (!content || !medicalHistory) {
       return res.status(400).json({ message: "Content and Medical History are required." });
     }
 
-    const newPost = new Post({
+    let dataObj = {
       content,
       imageUrl,
       reportUrl,
       medicalHistory,
-      patientId,
-    });
+    };
 
+    const newPost = new Post(dataObj); // 
     await newPost.save();
     res.status(201).json({ message: "Post created successfully", post: newPost });
+
   } catch (error) {
     console.error("Error creating post:", error);
     res.status(500).json({ message: "Internal Server Error" });

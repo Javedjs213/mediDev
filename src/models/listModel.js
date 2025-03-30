@@ -5,7 +5,6 @@ const postSchema = new mongoose.Schema(
 
     content: {
       type: String,
-      required: true,
     },
     imageUrl: {
       type: [String], // Array of image URLs
@@ -18,7 +17,6 @@ const postSchema = new mongoose.Schema(
     patientId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Patient",
-      required: true,
     },
     verifiedBy: [{
       type: mongoose.Schema.Types.ObjectId,
@@ -31,7 +29,6 @@ const postSchema = new mongoose.Schema(
     },
     medicalHistory: {
       type: String,
-      required: true,
     },
   },
   {
